@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "universal",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": ["${mod_authors}"],
+  "contact": {
+    "homepage": "${mod_display_url}",
+    "issues": "${mod_issues_url}",
+    "sources": "${mod_sources_url}"
+  },
+  "license": "${mod_license}",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.huskuraft.universal.fabric.platform.FabricInitializer"
+    ],
+    "client": [
+      "dev.huskuraft.universal.fabric.platform.FabricClientInitializer"
+    ]
+  },
+  "mixins": [
+    "fabric.mixins.json"
+  ],
+  "accessWidener": "fabric.accesswidener",
+  "depends": {
+    "minecraft": "${minecraft_version_range}",
+    "fabricloader": "*",
+    "fabric-api": "*"
+  }
+}

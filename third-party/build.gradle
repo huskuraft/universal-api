@@ -1,0 +1,17 @@
+subprojects {
+    apply plugin: 'java-library'
+    apply plugin: 'org.spongepowered.gradle.vanilla'
+
+    group = "dev.huskuraft.universal"
+    version = "${api_version}"
+
+    minecraft {
+        version("${minecraft_version}")
+    }
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+}
