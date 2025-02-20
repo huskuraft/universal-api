@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "dev.huskuraft.universal"
-version = api_version
+version = version
 
 java {
     withSourcesJar()

@@ -3,7 +3,7 @@ subprojects {
     apply plugin: 'org.spongepowered.gradle.vanilla'
 
     group = "dev.huskuraft.universal"
-    version = "${api_version}"
+    version = version
 
     minecraft {
         version("${minecraft_version}")
