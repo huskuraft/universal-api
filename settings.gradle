@@ -22,8 +22,6 @@ pluginManagement {
     }
 }
 
-includeBuild('plugin')
-
 include ':common-api'
 
 [
@@ -104,21 +102,21 @@ include ':common-api'
     include ":forge-api:${version}"
 }
 
-//
-//[
-//    'v3839', //'1.20.6',
-////  'v3953', //'1.21',
-//    'v3955', //'1.21.1',
-////  'v4080', //'1.21.2',
-//    'v4082', //'1.21.3',
-////  'v4189', //'1.21.4',
-//].forEach { version ->
-//    include ":neoforge-api:${version}"
-//}
+[
+    'v3839', //'1.20.6',
+//  'v3953', //'1.21',
+    'v3955', //'1.21.1',
+//  'v4080', //'1.21.2',
+    'v4082', //'1.21.3',
+//  'v4189', //'1.21.4',
+].forEach { version ->
+    include ":neoforge-api:${version}"
+}
 
 include ':third-party:ftb-chunks-api-v0'
 include ':third-party:ftb-chunks-api-v1'
 include ':third-party:open-pac-api-v0'
 
-rootProject.name = 'universal-gradle-plugin'
+rootProject.name = 'universal-api'
+
 
