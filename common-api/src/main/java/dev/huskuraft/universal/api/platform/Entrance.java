@@ -7,8 +7,6 @@ import java.util.Optional;
 
 public interface Entrance {
 
-    String MOD_ID = "universal";
-
     int PROTOCOL_VERSION = 0;
 
     static Entrance getInstance() {
