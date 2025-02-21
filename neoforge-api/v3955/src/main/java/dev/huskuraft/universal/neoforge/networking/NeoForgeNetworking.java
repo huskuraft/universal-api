@@ -7,12 +7,12 @@ import java.util.Map;
 
 import com.google.auto.service.AutoService;
 
-import dev.huskuraft.effortless.Effortless;
 import dev.huskuraft.universal.api.core.ResourceLocation;
 import dev.huskuraft.universal.api.networking.ByteBufReceiver;
 import dev.huskuraft.universal.api.networking.ByteBufSender;
 import dev.huskuraft.universal.api.networking.Networking;
 import dev.huskuraft.universal.api.networking.Side;
+import dev.huskuraft.universal.api.platform.Entrance;
 import dev.huskuraft.universal.vanilla.core.MinecraftPlayer;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.network.ConnectionProtocol;
@@ -42,7 +42,7 @@ public class NeoForgeNetworking implements Networking {
                 }
             };
             var listeners = new ArrayList<IPayloadHandler<Payload>>();
-            var version = String.valueOf(Effortless.PROTOCOL_VERSION);
+            var version = String.valueOf(Entrance.PROTOCOL_VERSION);
             new PayloadRegistrar(version).playBidirectional(type, codec, (payload, context) -> {
                 for (var listener1 : listeners) {
                     listener1.handle(payload, context);
