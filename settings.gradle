@@ -1,6 +1,5 @@
 pluginManagement {
     repositories {
-        mavenLocal()
         mavenCentral()
         gradlePluginPortal()
         maven {
@@ -13,11 +12,15 @@ pluginManagement {
         }
         maven {
             name = 'NeoForge'
-            url = 'https://maven.neoforged.net/releases'
+            url = 'https://maven.neoforged.net/releases/'
         }
         maven {
             name = 'Sponge Snapshots'
             url = uri('https://repo.spongepowered.org/repository/maven-public/')
+        }
+        maven {
+            name = 'Huskuraft'
+            url = uri('https://repo.huskuraft.dev/releases/')
         }
     }
 }
