@@ -12,7 +12,6 @@ import dev.huskuraft.universal.api.networking.ByteBufSender;
 import dev.huskuraft.universal.api.networking.Networking;
 import dev.huskuraft.universal.api.networking.Side;
 import dev.huskuraft.universal.vanilla.core.MinecraftPlayer;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.event.network.CustomPayloadEvent;
 import net.minecraftforge.network.ChannelBuilder;

@@ -14,25 +14,26 @@ import dev.huskuraft.universal.vanilla.platform.MinecraftClient;
 import dev.huskuraft.universal.vanilla.renderer.MinecraftRenderer;
 import dev.huskuraft.universal.vanilla.renderer.MinecraftShader;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ShaderInstance;
+//import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraftforge.client.event.CustomizeGuiOverlayEvent;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
-import net.minecraftforge.client.event.RegisterShadersEvent;
-import net.minecraftforge.client.event.RenderLevelStageEvent;
+//import net.minecraftforge.client.event.RegisterShadersEvent;
+//import net.minecraftforge.client.event.RenderLevelStageEvent;
+//import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+//import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @AutoService(ClientEventRegistry.class)
 public class ForgeClientEventRegistry extends ClientEventRegistry {
 
     public ForgeClientEventRegistry() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onRegisterKeyMappings);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onReloadShader);
+//        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetup);
+//        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onRegisterKeyMappings);
+//        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onReloadShader);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -50,13 +51,13 @@ public class ForgeClientEventRegistry extends ClientEventRegistry {
         });
     }
 
-    @SubscribeEvent
-    public void onReloadShader(RegisterShadersEvent event) {
-        getRegisterShaderEvent().invoker().onRegisterShader((resource, format, consumer) -> {
-            var minecraftShader = new ShaderInstance(event.getResourceProvider(), resource.getPath(), format.reference());
-            event.registerShader(minecraftShader, shaderInstance -> consumer.accept(new MinecraftShader(shaderInstance)));
-        });
-    }
+//    @SubscribeEvent
+//    public void onReloadShader(RegisterShadersEvent event) {
+//        getRegisterShaderEvent().invoker().onRegisterShader((resource, format, consumer) -> {
+//            var minecraftShader = new ShaderInstance(event.getResourceProvider(), resource.getPath(), format.reference());
+//            event.registerShader(minecraftShader, shaderInstance -> consumer.accept(new MinecraftShader(shaderInstance)));
+//        });
+//    }
 
     @SubscribeEvent
     public void onClientTick(TickEvent.ClientTickEvent event) {
@@ -66,13 +67,13 @@ public class ForgeClientEventRegistry extends ClientEventRegistry {
 //        });
     }
 
-    @SubscribeEvent
-    public void onRenderLevelStage(RenderLevelStageEvent event) {
-        if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_TRANSLUCENT_BLOCKS) {
-            return;
-        }
-        getRenderWorldEvent().invoker().onRenderWorld(new MinecraftRenderer(new PoseStack()), event.getPartialTick());
-    }
+//    @SubscribeEvent
+//    public void onRenderLevelStage(RenderLevelStageEvent event) {
+//        if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_TRANSLUCENT_BLOCKS) {
+//            return;
+//        }
+//        getRenderWorldEvent().invoker().onRenderWorld(new MinecraftRenderer(new PoseStack()), event.getPartialTick());
+//    }
 
     @SubscribeEvent
     public void onRenderGui(CustomizeGuiOverlayEvent.Chat event) {

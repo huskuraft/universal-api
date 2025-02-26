@@ -115,25 +115,38 @@ class UniversalLibraryPlugin implements Plugin<Project> {
             archiveClassifier.set('')
         }
 
-        project.artifacts {
-            archives(project.tasks.shadowJar)
-        }
-
-        project.publishing {
-            publications {
-                maven(MavenPublication) {
-                    artifactId = "${project.loader_name}-api-v${dataVersion}"
-                    artifact project.shadowJar
-                }
-            }
-        }
-
         project.pluginManager.apply([
             'fabric'  : UniversalFabricPlugin.class,
             'quilt'   : UniversalQuiltPlugin.class,
             'forge'   : UniversalForgePlugin.class,
             'neoforge': UniversalNeoForgePlugin.class
-        ].get(project.loader_name))
+        ]["${project.loader_name}"])
+
+
+        project.artifacts {
+            if (project.loader_name == 'fabric') {
+                archives(project.tasks.remapJar)
+            } else {
+                archives(project.tasks.shadowJar)
+            }
+        }
+
+        project.publishing {
+            publications {
+                maven(MavenPublication) {
+                    artifactId = "${project.loader_name}-api"
+                    if (project.loader_name == 'fabric') {
+                        artifact(project.tasks.remapJar) {
+                            classifier "v${dataVersion}"
+                        }
+                    } else {
+                        artifact(project.tasks.shadowJar) {
+                            classifier "v${dataVersion}"
+                        }
+                    }
+                }
+            }
+        }
 
     }
 

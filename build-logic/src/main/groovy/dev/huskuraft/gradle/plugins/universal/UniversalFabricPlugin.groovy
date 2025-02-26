@@ -51,11 +51,6 @@ class UniversalFabricPlugin implements Plugin<Project> {
             }
         }
 
-        project.extensions.getByType(PublishingExtension.class).publications {
-            it.named('maven', MavenPublication.class).get().setArtifacts(
-                [project.tasks.named('remapJar').get()]
-            )
-        }
     }
 
 }
