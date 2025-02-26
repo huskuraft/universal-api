@@ -1,0 +1,48 @@
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'java-library'
+apply plugin: 'java-gradle-plugin'
+
+group = 'dev.huskuraft.universal'
+version = plugin_version
+
+java {
+    withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+gradlePlugin {
+    plugins {
+        universalLibrary {
+            id = 'dev.huskuraft.universal.library'
+            description = project.description
+            displayName = 'UniversalLibrary'
+            version = project.version
+            implementationClass = "dev.huskuraft.gradle.plugins.universal.UniversalLibraryPlugin"
+        }
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation "com.gradleup.shadow:com.gradleup.shadow.gradle.plugin:8.3.6"
+    implementation "org.apache.ant:ant:1.10.15"
+
+    implementation 'org.ow2.asm:asm:9.5'
+    implementation 'org.ow2.asm:asm-commons:9.5'
+
+    implementation 'com.google.code.gson:gson:2.8.9'
+
+    implementation 'com.electronwill.night-config:core:3.6.7'
+    implementation 'com.electronwill.night-config:toml:3.6.7'
+    implementation 'com.electronwill.night-config:json:3.6.7'
+
+
+}

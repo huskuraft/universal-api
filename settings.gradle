@@ -1,6 +1,5 @@
 pluginManagement {
     repositories {
-        mavenLocal()
         mavenCentral()
         gradlePluginPortal()
         maven {
@@ -13,7 +12,7 @@ pluginManagement {
         }
         maven {
             name = 'NeoForge'
-            url = 'https://maven.neoforged.net/releases'
+            url = 'https://maven.neoforged.net/releases/'
         }
         maven {
             name = 'Sponge Snapshots'
@@ -116,6 +115,8 @@ include ':common-api'
 include ':third-party:ftb-chunks-api-v0'
 include ':third-party:ftb-chunks-api-v1'
 include ':third-party:open-pac-api-v0'
+
+includeBuild 'build-logic'
 
 rootProject.name = 'universal-api'
 

@@ -1,3 +1,3 @@
 subprojects {
-    apply plugin: 'dev.huskuraft.universal-library'
+    apply plugin: 'dev.huskuraft.universal.library'
 }
