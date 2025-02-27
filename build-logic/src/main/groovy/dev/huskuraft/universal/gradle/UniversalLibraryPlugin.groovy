@@ -5,6 +5,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.file.DuplicatesStrategy
 import org.gradle.api.publish.maven.MavenPublication
+import org.gradle.jvm.toolchain.JavaLanguageVersion
 
 class UniversalLibraryPlugin implements Plugin<Project> {
 
@@ -79,6 +80,11 @@ class UniversalLibraryPlugin implements Plugin<Project> {
             withSourcesJar()
             sourceCompatibility = getJavaVersion(dataVersion)
             targetCompatibility = getJavaVersion(dataVersion)
+
+            toolchain {
+                languageVersion = JavaLanguageVersion.of(getJavaVersion(dataVersion).getMajorVersion())
+            }
+
         }
 
         project.processResources {
