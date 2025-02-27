@@ -1,4 +1,4 @@
-package dev.huskuraft.gradle.plugins.universal
+package dev.huskuraft.universal.gradle
 
 
 import org.gradle.api.Plugin

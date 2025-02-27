@@ -4,7 +4,7 @@ apply plugin: 'java-library'
 apply plugin: 'java-gradle-plugin'
 
 group = 'dev.huskuraft.universal'
-version = plugin_version
+version = '0.1.0'
 
 java {
     withSourcesJar()
@@ -16,10 +16,7 @@ gradlePlugin {
     plugins {
         universalLibrary {
             id = 'dev.huskuraft.universal.library'
-            description = project.description
-            displayName = 'UniversalLibrary'
-            version = project.version
-            implementationClass = "dev.huskuraft.gradle.plugins.universal.UniversalLibraryPlugin"
+            implementationClass = "dev.huskuraft.universal.gradle.UniversalLibraryPlugin"
         }
     }
 }

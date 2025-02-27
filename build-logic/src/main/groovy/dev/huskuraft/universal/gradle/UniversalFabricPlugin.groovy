@@ -1,9 +1,7 @@
-package dev.huskuraft.gradle.plugins.universal
+package dev.huskuraft.universal.gradle
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.publish.PublishingExtension
-import org.gradle.api.publish.maven.MavenPublication
 
 class UniversalFabricPlugin implements Plugin<Project> {
     void apply(Project project) {
