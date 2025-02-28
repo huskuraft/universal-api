@@ -10,7 +10,6 @@ class UniversalForgePlugin implements Plugin<Project> {
         project.pluginManager.apply('net.minecraftforge.gradle')
 
         def dataVersion = UniversalLibraryPlugin.getVersionCode(project)
-        def isBelowJava21 = UniversalLibraryPlugin.getJavaVersion(dataVersion).isCompatibleWith(JavaVersion.VERSION_21)
 
         project.dependencies {
             minecraft "net.minecraftforge:forge:${project.minecraft_version}-${project.forge_version}"
@@ -61,7 +60,7 @@ class UniversalForgePlugin implements Plugin<Project> {
 
         project.shadowJar {
             dependsOn 'reobfJar'
-            if (isBelowJava21) {
+            if (dataVersion < 3801) {
                 project.reobf {
                     shadowJar {
                     }
