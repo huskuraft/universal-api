@@ -7,6 +7,9 @@ subprojects {
     apply plugin: 'dev.huskuraft.universal.library'
 }
 
+group = "dev.huskuraft.universal"
+version = version
+
 publishing {
     publications {
         register('maven', MavenPublication) {
