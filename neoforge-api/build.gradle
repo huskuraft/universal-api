@@ -1,3 +1,37 @@
+plugins {
+    id 'maven-publish'
+    id 'dev.huskuraft.universal.library' apply false
+}
+
 subprojects {
     apply plugin: 'dev.huskuraft.universal.library'
 }
+
+group = "dev.huskuraft.universal"
+version = version
+
+publishing {
+    publications {
+        register('maven', MavenPublication) {
+            artifactId = "${project.loader_name}-api"
+            subprojects.forEach { subproject ->
+                subproject.afterEvaluate {
+                    artifact(subproject.tasks.shadowJar) {
+                        classifier "${subproject.name}"
+                    }
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            name = "Huskuraft"
+            url = "https://repo.huskuraft.dev/releases"
+            credentials {
+                username = System.getenv("MAVEN_USERNAME")
+                password = System.getenv("MAVEN_PASSWORD")
+            }
+        }
+    }
+}
+
