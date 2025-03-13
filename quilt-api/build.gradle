@@ -17,7 +17,7 @@ publishing {
             subprojects.forEach { subproject ->
                 subproject.afterEvaluate {
                     artifact(subproject.tasks.shadowJar) {
-                        classifier "${subproject.name}"
+                        classifier "${subproject.minecraft_version}"
                     }
                 }
             }
