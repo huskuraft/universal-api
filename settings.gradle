@@ -44,7 +44,7 @@ include ':common-api'
     'v3955', //'1.21.1',
 //  'v4080', //'1.21.2',
     'v4082', //'1.21.3',
-//  'v4189', //'1.21.4',
+    'v4189', //'1.21.4',
 ].forEach { version ->
     include ":fabric-api:${version}"
 }
@@ -70,7 +70,7 @@ include ':common-api'
     'v3955', //'1.21.1',
 //  'v4080', //'1.21.2',
     'v4082', //'1.21.3',
-//  'v4189', //'1.21.4',
+    'v4189', //'1.21.4',
 ].forEach { version ->
     include ":quilt-api:${version}"
 }
@@ -96,7 +96,7 @@ include ':common-api'
     'v3955', //'1.21.1',
 //  'v4080', //'1.21.2',
     'v4082', //'1.21.3',
-//  'v4189', //'1.21.4',
+    'v4189', //'1.21.4',
 ].forEach { version ->
     include ":forge-api:${version}"
 }
@@ -107,7 +107,7 @@ include ':common-api'
     'v3955', //'1.21.1',
 //  'v4080', //'1.21.2',
     'v4082', //'1.21.3',
-//  'v4189', //'1.21.4',
+    'v4189', //'1.21.4',
 ].forEach { version ->
     include ":neoforge-api:${version}"
 }
